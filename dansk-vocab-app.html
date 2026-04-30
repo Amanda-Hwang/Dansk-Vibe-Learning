@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcard App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        .flashcard {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        .flashcard h2 {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Flashcard App</h1>
+    <div class="flashcard">
+        <h2>Word: Kærlighed</h2>
+        <p>Translation: Love</p>
+    </div>
+    <div class="flashcard">
+        <h2>Word: Venner</h2>
+        <p>Translation: Friends</p>
+    </div>
+    <div class="flashcard">
+        <h2>Word: Tak</h2>
+        <p>Translation: Thank you</p>
+    </div>
+    <script>
+        // JavaScript for random flashcard generation
+        const flashcards = [
+            { word: 'Kærlighed', translation: 'Love' },
+            { word: 'Venner', translation: 'Friends' },
+            { word: 'Tak', translation: 'Thank you' },
+            { word: 'Hej', translation: 'Hello' },
+            { word: 'Farvel', translation: 'Goodbye' }
+        ];
+
+        function showRandomFlashcard() {
+            const card = flashcards[Math.floor(Math.random() * flashcards.length)];
+            document.querySelector('.flashcard h2').innerText = 'Word: ' + card.word;
+            document.querySelector('.flashcard p').innerText = 'Translation: ' + card.translation;
+        }
+
+        // Show a random flashcard on page load
+        window.onload = showRandomFlashcard;
+    </script>
+</body>
+</html>
