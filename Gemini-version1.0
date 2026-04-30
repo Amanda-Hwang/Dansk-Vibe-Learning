@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <title>Dansk Vibe Vocab</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; display: flex; flex-direction: column; align-items: center; background: #f0f2f5; }
+        #card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; margin-top: 50px; width: 300px; }
+        img { width: 100%; border-radius: 10px; margin-bottom: 1rem; }
+        .buttons { margin-top: 1rem; display: flex; gap: 10px; justify-content: center; }
+        button { padding: 10px; cursor: pointer; border: none; border-radius: 5px; color: white; }
+        .easy { background: #28a745; } .good { background: #007bff; } .hard { background: #dc3545; }
+    </style>
+</head>
+<body>
+
+    <div id="card">
+        <img id="vocab-image" src="" alt="Routine Image">
+        <h2 id="danish-word">Oplader...</h2>
+        <p id="english-meaning" style="display:none;"></p>
+        <button onclick="toggleAnswer()">Show Answer</button>
+        
+        <div class="buttons" id="controls" style="display:none;">
+            <button class="hard" onclick="rate(1)">Hard</button>
+            <button class="good" onclick="rate(3)">Good</button>
+            <button class="easy" onclick="rate(5)">Easy</button>
+        </div>
+    </div>
+
+    <script>
+        // Sample data: In a real app, you'd fetch generated images here
+        let deck = [
+            { id: 1, word: "Morgenmad", translation: "Breakfast", interval: 1, nextReview: Date.now(), img: "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=400" },
+            { id: 2, word: "Tandbørste", translation: "Toothbrush", interval: 1, nextReview: Date.now(), img: "https://images.unsplash.com/photo-1559591937-e68fb3305e43?w=400" }
+        ];
+
+        function showCard() {
+            const card = deck[0]; // Simplified: just picks the first one
+            document.getElementById('danish-word').innerText = card.word;
+            document.getElementById('english-meaning').innerText = card.translation;
+            document.getElementById('vocab-image').src = card.img;
+            document.getElementById('english-meaning').style.display = 'none';
+            document.getElementById('controls').style.display = 'none';
+        }
+
+        function toggleAnswer() {
+            document.getElementById('english-meaning').style.display = 'block';
+            document.getElementById('controls').style.display = 'flex';
+        }
+
+        function rate(quality) {
+            // Very basic SRS logic: interval increases based on quality
+            deck[0].interval *= quality;
+            deck[0].nextReview = Date.now() + (deck[0].interval * 60000);
+            alert("Next review in " + deck[0].interval + " minutes!");
+            // Re-sort or fetch next card logic would go here
+        }
+
+        showCard();
+    </script>
+</body>
+</html>
