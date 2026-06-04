@@ -1,0 +1,9 @@
+cd /Users/amandahwang/Documents/Codex/2026-06-03/files-mentioned-by-the-user-gemini
+
+git init
+git add outputs/dansk-vibe-learning-2.html
+git commit -m "Add Dansk Vibe Learning 2.0"
+
+git branch -M main
+git remote add origin https://github.com/YOUR_USERNAME/dansk-vibe-learning.git
+git push -u origin main
