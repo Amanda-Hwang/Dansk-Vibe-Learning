@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dansk Vibe Learning 2.0</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>🇩🇰 Dansk Vibe 2.0</h1>
+            <p class="subtitle">Hover to reveal • Click rating to advance</p>
+        </header>
+
+        <!-- The Flashcard Container -->
+        <div class="flashcard-wrapper">
+            <div class="flashcard" id="flashcard">
+                <div class="card-image-area">
+                    <img id="vocab-image" src="" alt="Routine context visual">
+                </div>
+                <div class="card-text-area">
+                    <h2 id="danish-word">Henter...</h2>
+                    <div class="translation-zone">
+                        <p id="english-meaning"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SRS Interface Controls -->
+        <div class="controls-panel">
+            <button class="srs-btn hard" onclick="handleSRS(1)">✕ Hard</button>
+            <button class="srs-btn good" onclick="handleSRS(3)">✓ Good</button>
+            <button class="srs-btn easy" onclick="handleSRS(5)">★ Easy</button>
+        </div>
+
+        <!-- Progress Tracking Bar -->
+        <footer class="stats-bar">
+            <span>Due Tracker: <strong id="queue-count">0</strong> left</span>
+            <span>Mastery: <strong id="mastered-percentage">0%</strong></span>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
